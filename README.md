@@ -1,0 +1,1 @@
+# class-for-site-f1r-php
