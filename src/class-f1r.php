@@ -22,7 +22,7 @@ class F1r_php{
                 fwrite($file,"$he $message $time ".PHP_EOL);
                 fclose($file);
             } else {
-                file_put_contents("F1r_php.log","$he $message $time ".PHP_EOL);
+                file_put_contents( "F1r_php.log","$he $message $time ".PHP_EOL );
             }
             die("oops!! please reload this page Error : $he");
         } else {
@@ -30,9 +30,9 @@ class F1r_php{
         }
     }
     public static function creat_link($link,$name = "rand",$token){
-        $shourt =  json_decode(file_get_contents("https://f1r.ir/api/v2/?url=$link&name=$name&token=$token"));
-        if (isset($shourt->description)){
-            if ($shourt->description == "successful"){
+        $shourt =  json_decode( file_get_contents( "https://f1r.ir/api/v2/?url=$link&name=$name&token=$token" ) );
+        if ( isset($shourt->description) ){
+            if ( $shourt->description == "successful" ){
                 $array = [
                 'name'=>$shourt->result->name,
                 'link'=>$shourt->result->link,
@@ -53,7 +53,6 @@ class F1r_php{
             self::error_log("false","not found server","CLASS_CREAT_LINK [666]");
             return 'server error';
         }
-            
         }
         public static function getview($name = null){
             $check = json_decode(file_get_contents("https://f1r.ir/api/v2/status/?name=$name"));
