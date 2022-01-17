@@ -1,4 +1,13 @@
 <?php
+##########################################
+##                                      ##
+##        craeted by @dev_null          ##
+##                                      ##
+##        channel : @Pre_code           ##
+##                                      ##
+##     https://github.com/DevNull-IR    ##
+##                                      ##
+##########################################
 class F1r_php{
     public static function error_log( $status = "false" , $message , $he = null ){
         $time = "[ ".date("c")." ]";
