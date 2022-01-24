@@ -11,7 +11,7 @@ if (isset($url) && !empty($url)){
 }
 $result = shourtlink::creat_link($url,$name,$token);
 if (gettype($result) == "array"){
-  echo 'sucsfull'.PHP_EOL."name : {$result['name']}" . PHP_EOL . "sourt_link : {$result['link']}" . PHP_EOL . "status_link : {$result['status']}";
+  echo 'sucsfull'.PHP_EOL."name : " . $result['name'] . PHP_EOL . "sourt_link : {$result['link']}" . PHP_EOL . "status_link : {$result['status']}";
 } else {
     echo 'error the create new shourt link';
 }
