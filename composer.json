@@ -4,7 +4,7 @@
     "keywords": ["class", "shourt link","f1r"],
     "license": "GPL-2.0-or-later",
     "require": {
-        "php": "^7.0"
+        "php": "^7.0",
         "src": "^1.*"
     },
     "autoload": {
