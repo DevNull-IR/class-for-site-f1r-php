@@ -3,10 +3,6 @@
     "description": "The f1r classes.",
     "keywords": ["class", "shourt link","f1r"],
     "license": "GPL-2.0-or-later",
-    "require": {
-        "php": "^7.0",
-        "src": "^1.*"
-    },
     "autoload": {
         "psr-4": {
             "App\\": "src/"
