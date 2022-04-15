@@ -39,23 +39,16 @@ class F1r_php{
         }
     }
     public static function creat_link($link,$name = "rand",$token){
-        $shourt =  json_decode( file_get_contents( "https://f1r.ir/api/v2/?url=$link&name=$name&token=$token" ) );
-        if ( isset($shourt->description) ){
-            if ( $shourt->description == "successful" ){
+        $shourt =  json_decode( file_get_contents( "https://f1r.ir/api/new/{$token}?url=$link&name=$name" ) );
+        if ( isset($shourt->message) ){
+            if ( $shourt->message == "successful" ){
                 $array = [
-                'name'=>$shourt->result->name,
-                'link'=>$shourt->result->link,
-                'status'=>$shourt->result->status
+                'link'=>$shourt->Short_URL,
+                'status'=>$shourt->Information_URL
                 ];
                 return $array;
-            } else if ($shourt->description == "error in server"){
-                self::error_log("false","not found link","CLASS_CREAT_LINK [666]");
-                return "error";
-            } else if ($shourt->description == "error : token is worng"){
-                self::error_log("false","token not found","CLASS_CREAT_LINK [666]");
-                return "token not found";
-            } else {
-                self::error_log("false","not found description","CLASS_CREAT_LINK [666]");
+            }else {
+                self::error_log("false", $shourt->message,"CLASS_CREAT_LINK [666]");
                 return "opes!!";
             }
         } else {
@@ -64,15 +57,15 @@ class F1r_php{
         }
         }
         public static function getview($name = null){
-            $check = json_decode(file_get_contents("https://f1r.ir/api/v2/status/?name=$name"));
+            $check = json_decode(file_get_contents("https://f1r.ir/api/info?name=$name"));
             if (isset($check->description)){
                 return 'notfound link';
             } else {
                 $array = [
                         "views"=> $check->result->views,
-                        "date_created"=> $check->result->date_created,
+                        "date_created"=> $check->date->shamsi,
                         "Last_visit"=> $check->result->Last_visit,
-                        "Redirect"=> $check->result->Redirect,
+                        "Redirect"=> $check->Redirect,
                         "Visits_today"=> $check->result->Visits_today,
                         "Real_hits"=> $check->result->Real_hits
                     ];
