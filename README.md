@@ -1,3 +1,8 @@
+**The link shortener website has been disabled.**
+
+
+**وب سایت کوتاه کننده لینک غیرفعال شده است.**
+
 # Documention
 php class for f1r.ir ( shourt link )
 
